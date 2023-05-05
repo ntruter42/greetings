@@ -1,36 +1,78 @@
+@font-face {
+	font-family: "Coffee Healing";
+	src: url("/assets/fonts/CoffeeHealing-1GrKe.ttf");
+}
+
 html {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Coffee Healing", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	height: 100%;
 }
 
 body {
-	/* background-image: url(); */
-	background-color: black;
-	color: white;
+	background-color: grey;
+
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
-	align-content: center;
+
+	height: 100%;
+	/* background-image: url(); */
 }
+
+/* HEADING */
 
 #heading-container {
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
-	align-content: center;
+}
+
+h1 {
+	color: white;
 }
 
 #form-container {
+	background-color: #0002;
+
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: center;
+	flex-direction: column;
+
+	padding: 20px;
+}
+
+label {
+	color: white;
+
+	margin: auto;
+}
+
+input {
+	background-color: #0002;
+	color: black;
+	border: none;
+
+	text-align: center;
+}
+
+button {
+	background-color: #0004;
+	color: white;
+	border: none;
+
+	margin: auto;
 }
 
 #message-container {
+	color: white;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-content: center;
+
+	padding: 20px;
+}
+
+@media (min-width: 480px) {
+	/* … */
 }
 
 /* OUTLINES */
@@ -39,6 +81,8 @@ body {
 	outline: 1px solid magenta;
 }
 
-div {
+#heading-container,
+#form-container,
+#message-container {
 	outline: 1px solid cyan;
 }
