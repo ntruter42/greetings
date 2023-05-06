@@ -21,20 +21,22 @@ body {
 	font-size: 2em;
 }
 
-/* HEADING */
-
 #heading-container {
+	text-shadow: 0 2px 2px #000;
+
 	display: flex;
 	justify-content: center;
 }
 
 h1 {
 	color: white;
-	font-size: 2em;
 }
 
 #form-container {
 	background-color: #0002;
+	color: white;
+	text-shadow: 0 2px 2px #000;
+	border-radius: 20px;
 
 	display: flex;
 	flex-direction: column;
@@ -43,15 +45,14 @@ h1 {
 }
 
 label {
-	color: white;
-
 	margin: auto;
 }
 
 input {
 	background-color: #0002;
-	color: black;
+	outline: none;
 	border: none;
+	border-radius: 10px;
 
 	text-align: center;
 	margin: 10px 0 10px 0;
@@ -59,14 +60,19 @@ input {
 
 button {
 	background-color: #0004;
-	color: white;
 	border: none;
+	border-radius: 10px;
 
-	margin: auto;
+	/* margin: auto; */
+}
+
+button:hover {
+	background-color: #0004;
 }
 
 #message-container {
 	color: white;
+	text-shadow: 0 2px 2px #000;
 
 	display: flex;
 	flex-direction: row;
@@ -78,16 +84,47 @@ button {
 
 span {
 	font-size: 2em;
+
+	transform: scale(0);
 }
 
-@media (min-width: 360px) {
+/* ANIMATIONS */
+
+.scale-up {
+	transform: scale(1);
+	transition: transform 400ms ease-in;
+}
+
+.scale-down {
+	transform: scale(0);
+	transition: transform 200ms ease-out;
+}
+
+@media (min-width: 600px) {
 	#form-container {
-		display: flex;
 		flex-direction: row;
 	}
 
 	input {
 		margin: 0 10px 0 10px;
+	}
+
+	button {
+		padding: 5px 10px;
+	}
+
+	span {
+		transform: scale(0);
+	}
+
+	.scale-up {
+		transform: scale(1);
+		transition: transform 400ms ease-in;
+	}
+
+	.scale-down {
+		transform: scale(0);
+		transition: transform 200ms ease-out;
 	}
 }
 

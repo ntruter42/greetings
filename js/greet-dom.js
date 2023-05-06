@@ -4,14 +4,25 @@ const message = document.querySelector('#greet-message');
 
 const greet = Greet();
 
+let animationTimeout = 0;
+
 function greetButtonClick() {
 	if (input.value === "") {
 		alert("Name can't be empty");
 	} else {
+		clearTimeout(animationTimeout);
+		message.classList.remove('scale-up');
+		message.classList.add('scale-down');
+
 		greet.setName(input.value);
 		greet.setMessage();
-
-		message.innerHTML = greet.getMessage();
+		
+		animationTimeout = setTimeout(function () {
+			message.innerHTML = greet.getMessage();
+			message.classList.remove('scale-down');
+			message.classList.add('scale-up');
+		}, 200);
+		
 		input.value = "";
 	}
 }
