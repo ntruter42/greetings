@@ -11,21 +11,40 @@
 </head>
 
 <body>
-<div>
-	<div class="" id="heading-container">
-		<h1>Greeting</h1>
-	</div>
+	<div id="widget-container">
+		<div class="" id="heading-container">
+			<h1>Greeting</h1>
+		</div>
 
-	<form class="" id="form-container">
-		<label for="username">Name</label>
-		<input id="greet-input" type="text" value="World!" name="username" autocomplete="off">
-		<button id="greet-button" type="button">Greet Me</button>
-	</form>
+		<form class="" id="form-container">
+			<div id="input-container">
+				<label for="username">Name</label>
+				<input id="greet-input" type="text" value="World!" name="username" autocomplete="off">
+			</div>
 
-	<div class="" id="message-container">
-		<span id="greet-message"></span>
+			<div id="radio-container">
+				<div>
+					<input type="radio" name="greet-language" value="english" checked="checked">
+					<label for="radio-english">English</label>
+				</div>
+				<div>
+					<input type="radio" name="greet-language" value="afrikaans">
+					<label for="radio-afrikaans">Afrikaans</label>
+				</div>
+				<div>
+					<input type="radio" name="greet-language" value="xhosa">
+					<label for="radio-xhosa">isiXhosa</label>
+				</div>
+			</div>
+			<button id="greet-button" type="button">Greet Me</button>
+		</form>
+
+		<span id="greet-counter" style="position: absolute; left: 75%; top: 15%; font-size: 2.8em;">0</span>
+
+		<div class="" id="message-container">
+			<span id="greet-message"></span>
+		</div>
 	</div>
-</div>
 
 	<script src="js/greet.js"></script>
 	<script src="js/greet-dom.js"></script>
