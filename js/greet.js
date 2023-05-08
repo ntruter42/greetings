@@ -1,6 +1,7 @@
 function Greet() {
 	let name = "";
 	let namesGreeted = {};
+	let message = "";
 
 	function setName(input) {
 		name = input.trim();
@@ -18,15 +19,30 @@ function Greet() {
 	}
 
 	function addName() {
-		if (!hasBeenGreeted) {
+		if (!hasBeenGreeted()) {
 			namesGreeted[name] = 0;
 		}
-		namesGreeted[name]++;
+		namesGreeted[name] += 1;
 	}
 
-	function createMessage() {
+	function resetNames() {
+		namesGreeted = {};
+	}
+
+	function setMessage(language) {
 		addName();
-		return "Hello, " + getName();
+		if (language === "english") {
+			message = "Hello, ";
+		} else if (language === "afrikaans") {
+			message = "Hallo, ";
+		} else if (language === "xhosa") {
+			message = "Molo, ";
+		}
+		message += getName();
+	}
+
+	function getMessage() {
+		return message;
 	}
 
 	function getCount() {
@@ -37,7 +53,10 @@ function Greet() {
 		setName,
 		getName,
 		hasBeenGreeted,
-		createMessage,
+		addName,
+		resetNames,
+		setMessage,
+		getMessage,
 		getCount,
 		addName,
 	}

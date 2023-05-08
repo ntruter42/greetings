@@ -1,25 +1,28 @@
 const input = document.querySelector('#greet-input');
-const button = document.querySelector("#greet-button");
+const button = document.querySelector('#greet-button');
 const message = document.querySelector('#greet-message');
-
-const counter = document.querySelector("#greet-counter");
-
-const greet = Greet();
+const counter = document.querySelector('#greet-counter');
+const reset = document.querySelector('#greet-reset');
 
 let animationTimeout = 0;
 
+const greet = Greet();
+counter.innerHTML = greet.getCount();
+
 function greetButtonClick() {
+	const language = document.querySelector('input[type="radio"][name="greet-language"]:checked');
+
 	if (input.value === "") {
 		alert("Name can't be empty");
 	} else {
 		clearTimeout(animationTimeout);
-		message.classList.remove('scale-up');
-		message.classList.add('scale-down');
+		message.classList.replace('scale-up', 'scale-down');
 
 		greet.setName(input.value);
+		greet.setMessage(language.value);
 
 		animationTimeout = setTimeout(function () {
-			message.innerHTML = greet.createMessage();
+			message.innerHTML = greet.getMessage();
 			counter.innerHTML = greet.getCount();
 
 			message.classList.remove('scale-down');
@@ -29,7 +32,7 @@ function greetButtonClick() {
 		input.value = "";
 	}
 }
-
+button.addEventListener('click', greetButtonClick);
 input.addEventListener("keydown", function (event) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
@@ -37,4 +40,13 @@ input.addEventListener("keydown", function (event) {
 	}
 });
 
-button.addEventListener('click', greetButtonClick);
+function greetResetClicked() {
+	message.classList.replace('scale-up', 'scale-down');
+
+	setTimeout(function () {
+		greet.resetNames();
+		message.innerHTML = "";
+		counter.innerHTML = greet.getCount();
+	}, 200);
+}
+reset.addEventListener('click', greetResetClicked);
