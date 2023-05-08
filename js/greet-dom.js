@@ -1,6 +1,8 @@
-const button = document.querySelector("#greet-button");
 const input = document.querySelector('#greet-input');
+const button = document.querySelector("#greet-button");
 const message = document.querySelector('#greet-message');
+
+const counter = document.querySelector("#greet-counter");
 
 const greet = Greet();
 
@@ -15,14 +17,15 @@ function greetButtonClick() {
 		message.classList.add('scale-down');
 
 		greet.setName(input.value);
-		greet.setMessage();
-		
+
 		animationTimeout = setTimeout(function () {
-			message.innerHTML = greet.getMessage();
+			message.innerHTML = greet.createMessage();
+			counter.innerHTML = greet.getCount();
+
 			message.classList.remove('scale-down');
 			message.classList.add('scale-up');
 		}, 200);
-		
+
 		input.value = "";
 	}
 }

@@ -1,6 +1,5 @@
 function Greet() {
 	let name = "";
-	let message = "";
 	let namesGreeted = {};
 
 	function setName(input) {
@@ -11,28 +10,6 @@ function Greet() {
 		return name;
 	}
 
-	function setMessage() {
-		message = "Hello, " + getName();
-	}
-
-	function getMessage() {
-		addName();
-		countGreeting();
-		return message;
-	}
-
-	function getCount() {
-		return namesGreeted.length;
-	}
-
-	function addName() {
-		if (!hasBeenGreeted) {
-			namesGreeted[name] = 1;
-		} else {
-
-		}
-	}
-
 	function hasBeenGreeted() {
 		if (namesGreeted[name] === undefined) {
 			return false;
@@ -40,13 +17,28 @@ function Greet() {
 		return true;
 	}
 
+	function addName() {
+		if (!hasBeenGreeted) {
+			namesGreeted[name] = 0;
+		}
+		namesGreeted[name]++;
+	}
+
+	function createMessage() {
+		addName();
+		return "Hello, " + getName();
+	}
+
+	function getCount() {
+		return Object.keys(namesGreeted).length;
+	}
+
 	return {
 		setName,
 		getName,
-		setMessage,
-		getMessage,
+		hasBeenGreeted,
+		createMessage,
 		getCount,
 		addName,
-		hasBeenGreeted
 	}
 }

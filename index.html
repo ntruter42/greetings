@@ -18,23 +18,25 @@
 
 		<form class="" id="form-container">
 			<div id="input-container">
-				<label for="username">Name</label>
-				<input id="greet-input" type="text" value="World!" name="username" autocomplete="off">
+				<label for="greet-input">
+					<span>Name</span>
+					<input id="greet-input" type="text" value="World!" name="username" autocomplete="off">
+				</label>
 			</div>
 
 			<div id="radio-container">
-				<div>
-					<input type="radio" name="greet-language" value="english" checked="checked">
-					<label for="radio-english">English</label>
-				</div>
-				<div>
-					<input type="radio" name="greet-language" value="afrikaans">
-					<label for="radio-afrikaans">Afrikaans</label>
-				</div>
-				<div>
-					<input type="radio" name="greet-language" value="xhosa">
-					<label for="radio-xhosa">isiXhosa</label>
-				</div>
+				<label for="radio-english">
+					<input id="radio-english" type="radio" name="greet-language" value="english" checked="checked">
+					<span>English</span>
+				</label>
+				<label for="radio-afrikaans">
+					<input id="radio-afrikaans" type="radio" name="greet-language" value="afrikaans">
+					<span>Afrikaans</span>
+				</label>
+				<label for="radio-xhosa">
+					<input id="radio-xhosa" type="radio" name="greet-language" value="xhosa">
+					<span>isiXhosa</span>
+				</label>
 			</div>
 			<button id="greet-button" type="button">Greet Me</button>
 		</form>
