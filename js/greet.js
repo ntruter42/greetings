@@ -7,7 +7,6 @@ function Greet() {
 		if (namesGreeted[name.toLowerCase()] === undefined) {
 			return false;
 		}
-		alert("Name has already been greeted");
 		return true;
 	}
 
@@ -17,6 +16,10 @@ function Greet() {
 
 	function getName() {
 		return name;
+	}
+
+	function getAllNames() {
+		return namesGreeted;
 	}
 
 	function addName() {
@@ -64,6 +67,7 @@ function Greet() {
 	return {
 		setName,
 		getName,
+		getAllNames,
 		addName,
 		setNames,
 		resetNames,
@@ -72,6 +76,5 @@ function Greet() {
 		getCount,
 		isName,
 		hasBeenGreeted
-
 	}
 }

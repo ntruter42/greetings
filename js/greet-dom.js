@@ -1,37 +1,56 @@
+// INPUT ELEMENTS
 const input = document.querySelector('#greet-input');
 const button = document.querySelector('#greet-button');
-const message = document.querySelector('#greet-message');
-const counter = document.querySelector('#greet-counter');
 const reset = document.querySelector('#greet-reset');
 const radioButtons = document.querySelectorAll('input[type = "radio"][name = "greet-language"]');
 
-let animationTimeout = 0;
+// OUTPUT ELEMENTS
+const message = document.querySelector('#greet-message');
+const counter = document.querySelector('#greet-counter');
+const validation = document.querySelector('#validation-message');
+const validationBox = document.querySelector('#validation-container');
 
+// FUNCTIONALITY
+let messageAnimationTimeout = 0;
+
+// INITIALISATION
 const greet = Greet();
 counter.innerHTML = greet.getCount();
+
+function displayMessage(messageValidation) {
+	validationBox.classList.remove('hidden');
+	validation.innerHTML = messageValidation;
+	
+	setTimeout(function () {
+		setTimeout(function() {
+			validationBox.classList.add('scale-forward');
+		}, 2000);
+		validationBox.classList.add('hidden');
+	}, 2000);
+}
 
 function greetButtonClick() {
 	const language = document.querySelector('input[type="radio"][name="greet-language"]:checked');
 
-	if (!language) {
-		alert("No language selected");
-	} else if (input.value === "") {
-		alert("Name can't be empty");
+	if (input.value === "") {
+		displayMessage("Name can't be empty");
 	} else if (!greet.isName(input.value)) {
-		alert("Name should only contain alphabet characters and/or 1 dash or space")
+		displayMessage("Name should only contain alphabet characters and/or 1 dash or space");
+	} else if (!language) {
+		displayMessage("No language selected");
 	} else {
-		clearTimeout(animationTimeout);
-		message.classList.replace('scale-up', 'scale-down');
+		clearTimeout(messageAnimationTimeout);
+		validation.classList.replace('scale-up', 'scale-down');
 
 		greet.setName(input.value);
 		greet.setMessage(language.value);
 
-		animationTimeout = setTimeout(function () {
+		messageAnimationTimeout = setTimeout(function () {
 			message.innerHTML = greet.getMessage();
 			counter.innerHTML = greet.getCount();
 
-			message.classList.remove('scale-down');
-			message.classList.add('scale-up');
+			validation.classList.remove('scale-down');
+			validation.classList.add('scale-up');
 		}, 200);
 
 		input.value = "";
@@ -56,7 +75,7 @@ radioButtons.forEach(radio => {
 });
 
 function greetResetClicked() {
-	message.classList.replace('scale-up', 'scale-down');
+	validation.classList.replace('scale-up', 'scale-down');
 
 	setTimeout(function () {
 		greet.resetNames();
