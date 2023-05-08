@@ -39,13 +39,13 @@ function Greet() {
 	function setMessage(language) {
 		addName();
 		if (language === "english") {
-			message = "Hello, ";
+			message = "Hello";
 		} else if (language === "afrikaans") {
-			message = "Hallo, ";
+			message = "Hallo";
 		} else if (language === "xhosa") {
-			message = "Molo, ";
+			message = "Molo";
 		}
-		message += getName();
+		message += ", " + getName() + ".";
 	}
 
 	function getMessage() {
@@ -61,7 +61,6 @@ function Greet() {
 	}
 
 	return {
-		hasBeenGreeted,
 		setName,
 		getName,
 		addName,
@@ -70,7 +69,8 @@ function Greet() {
 		setMessage,
 		getMessage,
 		getCount,
-		addName,
-		isName
+		isName,
+		hasBeenGreeted
+
 	}
 }

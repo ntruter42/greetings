@@ -1,12 +1,12 @@
 @font-face {
 	font-family: "Coffee Healing";
-	src: url("./assets/fonts/CoffeeHealing-1GrKe.ttf");
+	src: url("../assets/fonts/CoffeeHealing-1GrKe.ttf");
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Coffee Healing";
-	src: url("./assets/fonts/CoffeeHealingItalic-RpP6o.ttf");
+	src: url("../assets/fonts/CoffeeHealingItalic-RpP6o.ttf");
 	font-style: italic;
 }
 
@@ -20,7 +20,7 @@ html {
 
 body {
 	/* background-color: black; */
-	background-image: url("./assets/images/e7jj6r.jpg") !important;
+	background-image: url("../assets/images/e7jj6r.jpg") !important;
 	background-size: cover;
 	background-position: center center;
 
