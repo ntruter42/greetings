@@ -93,6 +93,8 @@ input[type="radio"] {
 }
 
 #message-container {
+	font-style: italic;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

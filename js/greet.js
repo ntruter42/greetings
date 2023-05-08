@@ -12,7 +12,7 @@ function Greet() {
 	}
 
 	function hasBeenGreeted() {
-		if (namesGreeted[name] === undefined) {
+		if (namesGreeted[name.toLowerCase()] === undefined) {
 			return false;
 		}
 		return true;
@@ -20,9 +20,9 @@ function Greet() {
 
 	function addName() {
 		if (!hasBeenGreeted()) {
-			namesGreeted[name] = 0;
+			namesGreeted[name.toLowerCase()] = 0;
 		}
-		namesGreeted[name] += 1;
+		namesGreeted[name.toLowerCase()] += 1;
 	}
 
 	function resetNames() {
@@ -49,6 +49,10 @@ function Greet() {
 		return Object.keys(namesGreeted).length;
 	}
 
+	function isName(str) {
+		return /^[a-zA-Z]+((-| )[a-zA-Z]+)?$/.test(str);
+	}
+
 	return {
 		setName,
 		getName,
@@ -59,5 +63,6 @@ function Greet() {
 		getMessage,
 		getCount,
 		addName,
+		isName
 	}
 }

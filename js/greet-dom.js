@@ -12,8 +12,12 @@ counter.innerHTML = greet.getCount();
 function greetButtonClick() {
 	const language = document.querySelector('input[type="radio"][name="greet-language"]:checked');
 
-	if (input.value === "") {
+	if (!language) {
+		alert("No language selected");
+	} else if (input.value === "") {
 		alert("Name can't be empty");
+	} else if (!greet.isName(input.value)) {
+		alert("Name should only contain alphabet characters and/or 1 dash or space")
 	} else {
 		clearTimeout(animationTimeout);
 		message.classList.replace('scale-up', 'scale-down');
