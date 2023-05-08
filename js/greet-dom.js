@@ -6,7 +6,7 @@ const reset = document.querySelector('#greet-reset');
 
 let animationTimeout = 0;
 
-const greet = Greet();
+var greet = Greet();
 counter.innerHTML = greet.getCount();
 
 function greetButtonClick() {

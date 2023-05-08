@@ -1,7 +1,15 @@
 function Greet() {
 	let name = "";
-	let namesGreeted = {};
+	let namesGreeted = JSON.parse(localStorage.getItem("namesGreeted")) || {};
 	let message = "";
+
+	function hasBeenGreeted() {
+		if (namesGreeted[name.toLowerCase()] === undefined) {
+			return false;
+		}
+		alert("Name has already been greeted");
+		return true;
+	}
 
 	function setName(input) {
 		name = input.trim();
@@ -11,22 +19,21 @@ function Greet() {
 		return name;
 	}
 
-	function hasBeenGreeted() {
-		if (namesGreeted[name.toLowerCase()] === undefined) {
-			return false;
-		}
-		return true;
-	}
-
 	function addName() {
 		if (!hasBeenGreeted()) {
 			namesGreeted[name.toLowerCase()] = 0;
+			localStorage.setItem("namesGreeted", JSON.stringify(namesGreeted));
 		}
 		namesGreeted[name.toLowerCase()] += 1;
 	}
 
+	function setNames(obj) {
+		namesGreeted = obj;
+	}
+
 	function resetNames() {
 		namesGreeted = {};
+		localStorage.removeItem("namesGreeted");
 	}
 
 	function setMessage(language) {
@@ -54,10 +61,11 @@ function Greet() {
 	}
 
 	return {
+		hasBeenGreeted,
 		setName,
 		getName,
-		hasBeenGreeted,
 		addName,
+		setNames,
 		resetNames,
 		setMessage,
 		getMessage,
