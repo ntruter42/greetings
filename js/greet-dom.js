@@ -3,10 +3,11 @@ const button = document.querySelector('#greet-button');
 const message = document.querySelector('#greet-message');
 const counter = document.querySelector('#greet-counter');
 const reset = document.querySelector('#greet-reset');
+const radioButtons = document.querySelectorAll('input[type = "radio"][name = "greet-language"]');
 
 let animationTimeout = 0;
 
-var greet = Greet();
+const greet = Greet();
 counter.innerHTML = greet.getCount();
 
 function greetButtonClick() {
@@ -37,11 +38,21 @@ function greetButtonClick() {
 	}
 }
 button.addEventListener('click', greetButtonClick);
-input.addEventListener("keydown", function (event) {
+
+input.addEventListener('keydown', function (event) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
 		greetButtonClick();
 	}
+});
+
+radioButtons.forEach(radio => {
+	radio.addEventListener('keydown', function (event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			greetButtonClick();
+		}
+	});
 });
 
 function greetResetClicked() {

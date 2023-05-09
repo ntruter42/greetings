@@ -28,6 +28,7 @@ function Greet() {
 	}
 
 	function setNames(obj) {
+		// useful only if localStorage needs to be seperated from the business logic
 		namesGreeted = obj;
 	}
 
@@ -45,7 +46,7 @@ function Greet() {
 		} else if (language === "xhosa") {
 			message = "Molo";
 		}
-		message += ", " + getName() + ".";
+		message += ", " + getName();
 	}
 
 	function getMessage() {

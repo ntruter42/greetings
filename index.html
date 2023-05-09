@@ -12,16 +12,27 @@
 
 <body>
 	<div id="widget-container">
+		<!-- HEADING -->
 		<div class="" id="heading-container">
 			<h1>Greeting</h1>
 		</div>
 
+		<!-- VALIDATION MESSAGE -->
+		<div id="validation-container">
+			<span id="validation-message"></span>
+		</div>
+
+		<!-- INPUT FORM -->
 		<form class="" id="form-container">
 			<div id="input-container">
 				<label for="greet-input">
 					<span>Name</span>
-					<input id="greet-input" type="text" value="World" name="username" autocomplete="off">
+					<input id="greet-input" type="text" placeholder="" name="username" autocomplete="off">
 				</label>
+				<div id="counter-container">
+					<span id="greet-counter"></span>
+					<button id="greet-reset" type="button">Reset</button>
+				</div>
 			</div>
 
 			<div id="radio-container">
@@ -41,11 +52,7 @@
 			<button id="greet-button" type="button">Greet Me</button>
 		</form>
 
-		<div id="counter-container" style="display: flex; flex-direction: column; position: absolute; left: 75%; top: 15%;">
-			<span id="greet-counter" style="font-size: 3em; text-align: center;"></span>
-			<button id="greet-reset" type="button">Reset</button>
-		</div>
-
+		<!-- GREETING MESSAGE -->
 		<div class="" id="message-container">
 			<span id="greet-message"></span>
 		</div>
