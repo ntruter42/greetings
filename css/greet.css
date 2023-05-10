@@ -43,13 +43,10 @@ body {
 #validation-container {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 0.6em;
-
-	background-color: #f888;
 	color: black;
 	box-shadow: 0 4px 20px black;
 	/* text-shadow: 1px 1px white, 0px 0px 10px white; */
 	text-shadow: none;
-	outline: 2px solid #f00;
 	border-radius: 10px;
 	max-width: 420px;
 
@@ -63,6 +60,21 @@ body {
 
 .hidden {
 	display: none !important;
+}
+
+.red {
+	background-color: #f888 !important;
+	outline: 2px solid #f00 !important;
+}
+
+.orange {
+	background-color: #fa88 !important;
+	outline: 2px solid #fa0 !important;
+}
+
+.green {
+	background-color: #8f88 !important;
+	outline: 2px solid #0f0 !important;
 }
 
 /* ==================== FORM ==================== */
@@ -163,7 +175,7 @@ button:focus:not(:active) {
 }
 
 #greet-message {
-	text-shadow: 0 2px 2px black;
+	text-shadow: 0 2px 2px black, 1px 1px black;
 	/* transform: scale(0); */
 }
 
@@ -210,6 +222,7 @@ button:focus:not(:active) {
 	transform: scale(1);
 	transition: transform 1s ease-out;
 }
+
 
 .scale-backward {
 	transform: scale(0);
@@ -275,10 +288,10 @@ button:focus:not(:active) {
 		align-items: center;
 	}
 
-		#error-container a {
-			width: 90%;
-			height: auto;
-		}
+	#error-container a {
+		width: 90%;
+		height: auto;
+	}
 
 	#error-container img {
 		width: 90%;

@@ -18,11 +18,25 @@ let validationAnimationTimeout = 0;
 const greet = Greet();
 counter.innerHTML = greet.getCount();
 
-function displayMessage(messageValidation) {
+function displayMessage(messageValidation, color) {
 	clearTimeout(validationAnimationTimeout);
-	validationBox.classList.remove('hidden');
+	validationBox.classList.remove('hidden', 'red', 'orange', 'green');
 
 	validation.innerHTML = messageValidation;
+
+	switch (color) {
+		case 'red':
+			validationBox.classList.add('red');
+			break;
+		case 'orange':
+			validationBox.classList.add('orange');
+			break;
+		case 'green':
+			validationBox.classList.add('green');
+			break;
+		default:
+			break;
+	}
 
 	let duration = messageValidation.length * 100;
 	validationAnimationTimeout = setTimeout(function () {
@@ -37,18 +51,18 @@ function greetButtonClick() {
 	const language = document.querySelector('input[type="radio"][name="greet-language"]:checked');
 
 	if (input.value === "") {
-		displayMessage("Name can't be empty");
+		displayMessage("Name can't be empty", "red");
 	} else if (!greet.isName(input.value)) {
-		displayMessage("Name should only contain alphabet characters and/or 1 dash or space");
+		displayMessage("Name should only contain alphabet characters and/or 1 dash or space", "red");
 	} else if (!language) {
-		displayMessage("No language selected");
+		displayMessage("No language selected", "red");
 	} else {
 		clearTimeout(messageAnimationTimeout);
 		message.classList.replace('scale-up', 'scale-down');
 
 		greet.setName(input.value);
 		if (greet.hasBeenGreeted()) {
-			displayMessage("Name has already been greeted before");
+			displayMessage("Name has already been greeted before", "orange");
 		}
 		greet.setMessage(language.value);
 
@@ -83,6 +97,7 @@ radioButtons.forEach(radio => {
 
 function greetResetClicked() {
 	message.classList.replace('scale-up', 'scale-down');
+	displayMessage("Counter has been reset", "green");
 
 	setTimeout(function () {
 		greet.resetNames();
