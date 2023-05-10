@@ -208,13 +208,11 @@ button:focus:not(:active) {
 
 .scale-up {
 	transform: scale(3);
-	margin-top: 150px;
 	transition: transform 400ms ease-in, margin-top 400ms ease-in;
 }
 
 .scale-down {
 	transform: scale(0);
-	margin-top: 0;
 	transition: transform 200ms ease-out, margin-top 200ms ease-out;
 }
 
@@ -260,12 +258,6 @@ button:focus:not(:active) {
 		position: absolute;
 		right: -20%;
 		top: 0%;
-	}
-
-	/* ANIMATIONS */
-
-	.scale-up {
-		margin-top: 264px;
 	}
 }
 
