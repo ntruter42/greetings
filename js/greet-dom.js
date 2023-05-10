@@ -12,21 +12,25 @@ const validationBox = document.querySelector('#validation-container');
 
 // FUNCTIONALITY
 let messageAnimationTimeout = 0;
+let validationAnimationTimeout = 0;
 
 // INITIALISATION
 const greet = Greet();
 counter.innerHTML = greet.getCount();
 
 function displayMessage(messageValidation) {
+	clearTimeout(validationAnimationTimeout);
 	validationBox.classList.remove('hidden');
+
 	validation.innerHTML = messageValidation;
-	
-	setTimeout(function () {
-		setTimeout(function() {
+
+	let duration = messageValidation.length * 100;
+	validationAnimationTimeout = setTimeout(function () {
+		setTimeout(function () {
 			validationBox.classList.add('scale-forward');
-		}, 2000);
+		}, duration);
 		validationBox.classList.add('hidden');
-	}, 2000);
+	}, duration);
 }
 
 function greetButtonClick() {
@@ -40,17 +44,20 @@ function greetButtonClick() {
 		displayMessage("No language selected");
 	} else {
 		clearTimeout(messageAnimationTimeout);
-		validation.classList.replace('scale-up', 'scale-down');
+		message.classList.replace('scale-up', 'scale-down');
 
 		greet.setName(input.value);
+		if (greet.hasBeenGreeted()) {
+			displayMessage("Name has already been greeted before");
+		}
 		greet.setMessage(language.value);
 
 		messageAnimationTimeout = setTimeout(function () {
 			message.innerHTML = greet.getMessage();
 			counter.innerHTML = greet.getCount();
 
-			validation.classList.remove('scale-down');
-			validation.classList.add('scale-up');
+			message.classList.remove('scale-down');
+			message.classList.add('scale-up');
 		}, 200);
 
 		input.value = "";
@@ -75,7 +82,7 @@ radioButtons.forEach(radio => {
 });
 
 function greetResetClicked() {
-	validation.classList.replace('scale-up', 'scale-down');
+	message.classList.replace('scale-up', 'scale-down');
 
 	setTimeout(function () {
 		greet.resetNames();
