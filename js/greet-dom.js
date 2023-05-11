@@ -1,8 +1,8 @@
 // INPUT ELEMENTS
 const input = document.querySelector('#greet-input');
-// const language = document.querySelector('input[type="radio"][name="greet-language"]:checked').value;
 const button = document.querySelector('#greet-button');
 const reset = document.querySelector('#greet-reset');
+const localisation = document.querySelector('#greet-localisation');
 const radioButtons = document.querySelectorAll('input[type = "radio"][name = "greet-language"]');
 
 // OUTPUT ELEMENTS
@@ -18,7 +18,7 @@ let validationAnimationTimeout = 0;
 // INITIALISATION
 const greet = Greet();
 counter.innerHTML = greet.getCount();
-languageChange();
+languageButton();
 
 function displayMessage(messageValidation, color) {
 	clearTimeout(validationAnimationTimeout);
@@ -135,6 +135,18 @@ function languageChange() {
 	}
 }
 
+function languageButton() {
+	const language = document.querySelector('input[type="radio"][name="greet-language"]:checked');
+
+	if (!language || language.value === "english") {
+		localisation.innerHTML = "Change Language";
+	} else if (language.value === "afrikaans") {
+		localisation.innerHTML = "Verander Taal";
+	} else if (language.value === "xhosa") {
+		localisation.innerHTML = "Guqula Ulwimi";
+	}
+}
+
 button.addEventListener('click', greetButtonClick);
 reset.addEventListener('click', greetResetClicked);
 input.addEventListener('keydown', function (event) {
@@ -144,13 +156,16 @@ input.addEventListener('keydown', function (event) {
 	}
 });
 radioButtons.forEach(radio => {
+	radio.addEventListener('click', function () {
+		languageButton();
+	});
 	radio.addEventListener('keydown', function (event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			greetButtonClick();
 		}
 	});
-	radio.addEventListener('click', function () {
+	localisation.addEventListener('click', function () {
 		languageChange();
 	});
 });

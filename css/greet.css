@@ -213,7 +213,7 @@ button:focus:not(:active) {
 /* nothing to see here */
 /* see GREET ME BUTTON */
 
-/* ==================== RESPONSIVE ERROR ==================== */
+/* ==================== SMALL WINDOW ERROR ==================== */
 
 #error-container {
 	display: none;

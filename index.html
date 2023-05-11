@@ -30,12 +30,15 @@
 					<span id="greet-label">Name</span>
 					<input id="greet-input" type="text" placeholder="" name="username" autocomplete="off">
 				</label>
+
+				<!-- COUNTER -->
 				<div id="counter-container">
 					<span id="greet-counter"></span>
 					<button id="greet-reset" type="button">Reset</button>
 				</div>
 			</div>
 
+			<!-- RADIO BUTTONS -->
 			<div id="radio-container">
 				<label for="radio-english">
 					<input id="radio-english" type="radio" name="greet-language" value="english">
@@ -50,6 +53,8 @@
 					<span>isiXhosa</span>
 				</label>
 			</div>
+
+			<!--  GREET BUTTON -->
 			<button id="greet-button" type="button">Greet Me</button>
 		</form>
 
@@ -59,6 +64,14 @@
 		</div>
 	</div>
 
+	<!-- LANGUAGE LOCALISATION -->
+	<div id="localisation-container" style="position: fixed; bottom: 0%;">
+		<button id="greet-localisation" type="button" style="transform: scale(0.8);">
+			Change Language
+		</button>
+	</div>
+
+	<!-- SMALL WINDOW -->
 	<div id="error-container">
 		<span>Browser window is too small</span>
 		<img src="assets/images/undraw_responsiveness_re_cuv5.svg" alt="404" />
@@ -69,6 +82,7 @@
 		</a>
 	</div>
 
+	<!-- SCRIPTS -->
 	<script src="js/greet.js"></script>
 	<script src="js/greet-dom.js"></script>
 </body>
