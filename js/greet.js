@@ -25,9 +25,9 @@ function Greet() {
 	function addName() {
 		if (!hasBeenGreeted()) {
 			namesGreeted[name.toLowerCase()] = 0;
-			localStorage.setItem("namesGreeted", JSON.stringify(namesGreeted));
 		}
 		namesGreeted[name.toLowerCase()] += 1;
+		localStorage.setItem("namesGreeted", JSON.stringify(namesGreeted));
 	}
 
 	function setNames(obj) {

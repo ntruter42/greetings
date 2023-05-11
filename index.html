@@ -12,9 +12,10 @@
 
 <body>
 	<div id="widget-container">
+		
 		<!-- HEADING -->
-		<div class="" id="heading-container">
-			<h1>Greeting</h1>
+		<div id="heading-container">
+			<h1 id="greet-header">Greeting</h1>
 		</div>
 
 		<!-- VALIDATION MESSAGE -->
@@ -23,10 +24,10 @@
 		</div>
 
 		<!-- INPUT FORM -->
-		<form class="" id="form-container">
+		<form id="form-container">
 			<div id="input-container">
 				<label for="greet-input">
-					<span>Name</span>
+					<span id="greet-label">Name</span>
 					<input id="greet-input" type="text" placeholder="" name="username" autocomplete="off">
 				</label>
 				<div id="counter-container">
@@ -59,8 +60,12 @@
 	</div>
 
 	<div id="error-container">
+		<span>Browser window is too small</span>
+		<img src="assets/images/undraw_responsiveness_re_cuv5.svg" alt="404" />
 		<a href="tests.html">
-			<img src="assets/images/undraw_responsiveness_re_cuv5.svg" alt="404" />
+			<button>
+				<span>Go to unit tests</span>
+			</button>
 		</a>
 	</div>
 
